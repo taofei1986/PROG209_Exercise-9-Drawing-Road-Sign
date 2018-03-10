@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing Road Signs</title>
+  </head>
+  <body>
+    <canvas id="sign01" width="1000px" height="1000px"></canvas>
+    <canvas id="sign02" width="1000px" height="1000px"></canvas>
+  </body>
+  <script>
+//draw first sign
+    let canvas01=document.querySelector("#sign01");//select id='sign01'
+    let sign01=canvas01.getContext("2d");//draw in canvas01
+    sign01.save();//save previous display state
+    //set drawing properties for the sigh
+    sign01.lineWidth=50;
+    sign01.lineJoin="round";
+    sign01.strokeStyle="red";
+    //draw the red triangle
+    sign01.beginPath();
+    sign01.moveTo(500,80);
+    sign01.lineTo(900,700);
+    sign01.lineTo(100,700);
+    sign01.closePath();
+    sign01.stroke();
+    //set drawing black lines peroerties;
+    sign01.strokeStyle="black";
+    //draw right black line
+    sign01.beginPath();
+    sign01.moveTo(570,310);
+    sign01.lineTo(570,650);
+    sign01.stroke();
+    //draw left black line
+     sign01.moveTo(430,310);
+    sign01.lineTo(430,430);
+    sign01.lineTo(370,530);
+    sign01.lineTo(370,650);
+    sign01.stroke();
+    sign01.restore();//Return previously saved path state and attributes
+
+//draw second sign
+    let canvas02=document.querySelector("#sign02");//select id='sign02'
+    let sign02=canvas02.getContext("2d");//draw in canvas01
+    sign02.save();//save previous display state
+    //set drawing properties for the sigh
+    sign02.lineWidth=5;
+    sign02.strokeStyle="red";
+    sign02.fillStyle="red";
+    //draw red circle
+    sign02.beginPath();
+    sign02.arc(500,500,300,0,2*Math.PI);
+    sign02.stroke();
+    sign02.fill();
+    //set white line properties
+    sign02.lineWidth=60;
+    sign02.strokeStyle="white";
+    sign02.fillStyle="white";
+    //draw white line
+    sign02.beginPath();
+    sign02.moveTo(240,500);
+    sign02.lineTo(760,500);
+    sign02.stroke();
+    //draw "DO NOT" text
+    sign02.font="bold 120px Arial";
+    sign02.fillText("DO NOT",260,430);
+    sign02.fillText("ENTER",300,660);
+    sign02.restore();//Return previously saved path state and attributes
+  </script>
+</html>
